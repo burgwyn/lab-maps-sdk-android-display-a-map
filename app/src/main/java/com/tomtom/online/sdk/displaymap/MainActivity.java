@@ -5,13 +5,14 @@ package com.tomtom.online.sdk.displaymap;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.tomtom.online.sdk.map.OnMapReadyCallback;
 import com.tomtom.online.sdk.map.TomtomMap;
-// Add here the NonNull import
+import androidx.annotation.NonNull;
 
 
 
 public class MainActivity extends AppCompatActivity
-// Implement here the MainActivity with OnMapReadyCallback
+implements OnMapReadyCallback
 {
   private TomtomMap tomtomMap;
 
@@ -21,5 +22,8 @@ public class MainActivity extends AppCompatActivity
     setContentView(R.layout.activity_main);
   }
 
-  // Add here the onMapReady callback
+  @Override
+  public void onMapReady(@NonNull final TomtomMap tomtomMap) {
+    this.tomtomMap = tomtomMap;
+  }
 }
